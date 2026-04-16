@@ -1,4 +1,4 @@
-import { test as base } from '@playwright/test'
+import { test as base, BrowserContext, Route } from '@playwright/test'
 import { HomePage } from '../pages/Home'
 import { LoginPage } from '../pages/Login'
 import { ProductsPage } from '../pages/Products'
@@ -11,7 +11,7 @@ type Pages = {
   cartPage: CartPage
 }
 
-export const test = base.extend<Pages>({  
+export const test = base.extend<Pages>({
   homePage: async ({ page }, use) => {
     await use(new HomePage(page))
   },
@@ -23,8 +23,22 @@ export const test = base.extend<Pages>({
   },
   cartPage: async ({ page }, use) => {
     await use(new CartPage(page))
-  }
+  },
 })
 
+export async function blockAds(context: BrowserContext) {
+  await context.route('**/*', (route: Route) => {
+    const url = route.request().url()
+
+    if (
+      url.includes('googlesyndication.com') ||
+      url.includes('doubleclick.net') ||
+      url.includes('googleadservices.com')
+    ) {
+      return route.abort()
+    }
+
+    return route.continue()
+  })
+}
 export { expect } from '@playwright/test'
- 

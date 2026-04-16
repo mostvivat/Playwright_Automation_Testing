@@ -2,9 +2,11 @@ import { test, expect } from '@playwright/test'
 import { HomePage } from '../pages/Home'
 import { ProductsPage } from '../pages/Products'
 // import { CartPage } from '../pages/Cart'
+import { blockAds } from '../fixtures/fixture_hw'
 
 test.describe('UI Assertion Tests', () => {
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page, context }) => {
+    await blockAds(context)
     const homePage = new HomePage(page)
     await homePage.goto()
   })
@@ -52,7 +54,7 @@ test.describe('UI Assertion Tests', () => {
   })
 
   //closed browser
-  // test.afterEach(async ({ page }) => {
-  //   await page.close()
-  // })
+  test.afterEach(async ({ page }) => {
+    await page.close()
+  })
 })

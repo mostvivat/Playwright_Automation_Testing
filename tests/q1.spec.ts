@@ -3,7 +3,7 @@ import { HomePage } from './../pages/Home'
 import { ProductsPage } from '../pages/Products'
 import { LoginPage } from '../pages/Login'
 import { CartPage } from '../pages/Cart'
-//import { PageManager } from '../pages/PageManager'
+import { blockAds } from '../fixtures/fixture_hw'
 
 const ValidCredentials = {
   username: 'Vivat@gmail.com',
@@ -15,7 +15,9 @@ const InvalidCredentials = {
 }
 
 test.describe('Login Page Tests', () => {
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page, context }) => {
+    // 🔥 Block Google Ads / tracking scripts
+    await blockAds(context)
     const homePage = new HomePage(page)
     await homePage.goto()
   })
