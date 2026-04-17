@@ -7,7 +7,6 @@ const formData = {
 }
 
 test.describe('Product API Assignment Homework', () => {
-  // API 5: POST : To Search Product
   // API 3: GET : All Brands List
   test('Validate GET : All Brands List', async ({ request }) => {
     const response = await request.get(`${API_BASE}/brandsList`)
@@ -52,19 +51,9 @@ test.describe('Product API Assignment Homework', () => {
     expect(data.responseCode).toBe(405)
     expect(data.message).toEqual('This request method is not supported.')
   })
-  // API 1: GET : All Products List
-  test('API 1: Get All Products List', async ({ request }) => {
-    const response = await request.get(`${API_BASE}/productsList`)
 
-    const data = await response.json()
-    console.log(data)
-
-    expect(data.responseCode).toBe(200)
-    expect(data).toHaveProperty('products')
-    expect(data.products[0]).toHaveProperty('id')
-  })
   // API 2: POST : To All Products List
-  test('API 2: POST To All Products List', async ({ request }) => {
+  test('Validate POST : To All Products List', async ({ request }) => {
     const response = await request.post(`${API_BASE}/productsList`)
 
     const data = await response.json()

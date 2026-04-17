@@ -18,7 +18,11 @@ export class ProductsPage {
   }
   // Action Methods
   async addProductToCart(productId: number) {
-    await this.page.locator(`[data-product-id="${productId}"]`).first().click()
+    await this.page
+      .locator('.productinfo')
+      .nth(productId - 1)
+      .locator('a:has-text("Add to cart")')
+      .click()
     await this.confirmModal.click()
   }
   async searchProduct(productName: string) {
@@ -35,6 +39,9 @@ export class ProductsPage {
   async addProductWithQty(productID: number, qty: number) {
     for (let i = 0; i < qty; i++) {
       await this.addProductToCart(productID)
+
+      // small buffer to avoid UI overlap issues
+      await this.page.waitForTimeout(300)
     }
   }
   async getAllProductNames() {

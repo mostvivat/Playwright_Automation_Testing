@@ -12,6 +12,10 @@ type Pages = {
 }
 
 export const test = base.extend<Pages>({
+  context: async ({ context }, use) => {
+    await blockAds(context) // 🔥 Block Google Ads / tracking scripts
+    await use(context)
+  },
   homePage: async ({ page }, use) => {
     await use(new HomePage(page))
   },
@@ -30,11 +34,14 @@ export async function blockAds(context: BrowserContext) {
   await context.route('**/*', (route: Route) => {
     const url = route.request().url()
 
-    if (
-      url.includes('googlesyndication.com') ||
-      url.includes('doubleclick.net') ||
-      url.includes('googleadservices.com')
-    ) {
+    const blockedDomains = [
+      'googlesyndication.com',
+      'doubleclick.net',
+      'googleadservices.com',
+      'adservice.google.com',
+    ]
+
+    if (blockedDomains.some((domain) => url.includes(domain))) {
       return route.abort()
     }
 

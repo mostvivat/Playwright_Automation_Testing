@@ -1,6 +1,7 @@
 import { Page, Locator, expect } from '@playwright/test'
 
 export class HomePage {
+  // Step 2: Declare locators as typed class properties
   readonly page: Page
   readonly baseURL: string
   readonly homePageLogo: Locator
@@ -8,9 +9,10 @@ export class HomePage {
   readonly carouselBar: Locator
   readonly productItems: Locator
 
+  // Step 3: Initialize all locators in the constructor
   constructor(page: Page, i18n?: string) {
-    this.baseURL = 'https://automationexercise.com'
     this.page = page
+    this.baseURL = 'https://automationexercise.com'
     this.homePageLogo = page.getByRole('img', {
       name: 'Website for automation practice',
     })
@@ -19,7 +21,7 @@ export class HomePage {
     this.productItems = page.locator('.features_items .col-sm-4')
   }
 
-  //PageNavigation Methods
+  // Step 4: Router Methods
   async goto() {
     await this.page.goto(this.baseURL)
   }
