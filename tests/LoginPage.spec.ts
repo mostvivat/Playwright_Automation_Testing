@@ -93,7 +93,4 @@ test.describe('Login Page Tests', () => {
 
     expect(totalQty).toBe(9)
   })
-  test.afterEach(async ({ page }) => {
-    await page.close()
-  })
 })
