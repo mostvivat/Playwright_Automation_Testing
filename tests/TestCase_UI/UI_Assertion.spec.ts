@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/fixture_hw'
+import { test, expect } from '../../fixtures/fixture_hw'
 
 test.describe('UI Assertion Tests', () => {
   test.beforeEach(async ({ homePage }) => {

@@ -13,7 +13,7 @@ type Pages = {
 
 export const test = base.extend<Pages>({
   context: async ({ context }, use) => {
-    await blockAds(context) // 🔥 Block Google Ads / tracking scripts
+    await blockAds(context) // 🔥 Block Google Ads
     await use(context)
   },
   homePage: async ({ page }, use) => {

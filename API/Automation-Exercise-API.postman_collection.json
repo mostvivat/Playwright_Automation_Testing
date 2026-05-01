@@ -1,0 +1,777 @@
+{
+  "info": {
+    "_postman_id": "e36ffbc4-b1d3-49f9-8f84-7f010fb45581",
+    "name": "Automation-Exercise-API",
+    "description": "Set Variable\n\n| Parameter | **Values** |\n| --- | --- |\n| BaseURL | https://automationexercise.com |",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "37694828"
+  },
+  "item": [
+    {
+      "name": "Account-Management",
+      "item": [
+        {
+          "name": "API 11: POST To Create/Register User Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Get all x-www-form-urlencoded fields\r",
+                  "let bodyParams = pm.request.body.urlencoded;\r",
+                  "\r",
+                  "// Helper function to get value by key\r",
+                  "function getValue(key) {\r",
+                  "    let item = bodyParams.find(p => p.key === key);\r",
+                  "    return item ? item.value : null;\r",
+                  "}\r",
+                  "\r",
+                  "// Read values\r",
+                  "let email = getValue(\"email\");\r",
+                  "let password = getValue(\"password\");\r",
+                  "\r",
+                  "pm.collectionVariables.set(\"Email\", email);\r",
+                  "pm.collectionVariables.set(\"Password\", password);\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "DD",
+                  "type": "text",
+                  "uuid": "74cd8b75-e988-477b-8292-06d83bc0394a"
+                },
+                {
+                  "key": "email",
+                  "value": "TestAPI3@gmail.com",
+                  "type": "text",
+                  "uuid": "b0a0203d-7dcb-4abe-b53c-f2639cd98288"
+                },
+                {
+                  "key": "password",
+                  "value": "APIMTest@122",
+                  "type": "text",
+                  "uuid": "198c93b3-c804-48f6-b10f-68ba7e57e34d"
+                },
+                {
+                  "key": "title ",
+                  "value": "Mr.",
+                  "type": "text",
+                  "uuid": "b070099f-75c0-4bc7-b2ea-766012207f63"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "15",
+                  "type": "text",
+                  "uuid": "69302a5c-f885-4bb9-a6d3-dbb4b2b82211"
+                },
+                {
+                  "key": "birth_month",
+                  "value": "12",
+                  "type": "text",
+                  "uuid": "2581894f-aac3-4570-b7ba-4007f5bafc3d"
+                },
+                {
+                  "key": "birth_year",
+                  "value": "2002",
+                  "type": "text",
+                  "uuid": "1e03ed0f-69bc-4e76-b313-5cc2998d0b25"
+                },
+                {
+                  "key": "firstname",
+                  "value": "Google",
+                  "type": "text",
+                  "uuid": "63ce4635-ad2a-4eef-a036-9e1bc7f5b9bc"
+                },
+                {
+                  "key": "lastname",
+                  "value": "Facebook",
+                  "type": "text",
+                  "uuid": "875a9603-8f5f-4dc6-b8db-4d1a6065b899"
+                },
+                {
+                  "key": "company",
+                  "value": "Entonico",
+                  "type": "text",
+                  "uuid": "329060f9-6d46-4548-a90d-82b6fd640b23"
+                },
+                {
+                  "key": "address1",
+                  "value": "ABC",
+                  "type": "text",
+                  "uuid": "8ae392ae-b675-44f3-989f-679bac343997"
+                },
+                {
+                  "key": "address2",
+                  "value": "2322",
+                  "type": "text",
+                  "uuid": "f87f16a1-a6a9-4d8e-9bef-33f504432645"
+                },
+                {
+                  "key": "country",
+                  "value": "Thailand",
+                  "type": "text",
+                  "uuid": "d5cc18ed-e894-4839-a03f-e4a4599a2b84"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "10900",
+                  "type": "text",
+                  "uuid": "20aab94f-295e-4dd1-96f9-b7fc004c04b3"
+                },
+                {
+                  "key": "state",
+                  "value": "CC",
+                  "type": "text",
+                  "uuid": "d437f65a-a76e-4452-a3a8-b2db8173d086"
+                },
+                {
+                  "key": "city",
+                  "value": "AA",
+                  "type": "text",
+                  "uuid": "71718298-ba12-4ed8-bdf4-0b059d6f8910"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "0228881122",
+                  "type": "text",
+                  "uuid": "f30a58bb-6daa-4dff-9ce6-a2840eac6f98"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BaseURL}}/api/createAccount",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "createAccount"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "API 11: POST To Create/Register User Account",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "name",
+                      "value": "DD",
+                      "type": "text",
+                      "uuid": "74cd8b75-e988-477b-8292-06d83bc0394a"
+                    },
+                    {
+                      "key": "email",
+                      "value": "TestAPI3@gmail.com",
+                      "type": "text",
+                      "uuid": "b0a0203d-7dcb-4abe-b53c-f2639cd98288"
+                    },
+                    {
+                      "key": "password",
+                      "value": "APIMTest@122",
+                      "type": "text",
+                      "uuid": "198c93b3-c804-48f6-b10f-68ba7e57e34d"
+                    },
+                    {
+                      "key": "title ",
+                      "value": "Mr.",
+                      "type": "text",
+                      "uuid": "b070099f-75c0-4bc7-b2ea-766012207f63"
+                    },
+                    {
+                      "key": "birth_date",
+                      "value": "15",
+                      "type": "text",
+                      "uuid": "69302a5c-f885-4bb9-a6d3-dbb4b2b82211"
+                    },
+                    {
+                      "key": "birth_month",
+                      "value": "12",
+                      "type": "text",
+                      "uuid": "2581894f-aac3-4570-b7ba-4007f5bafc3d"
+                    },
+                    {
+                      "key": "birth_year",
+                      "value": "2002",
+                      "type": "text",
+                      "uuid": "1e03ed0f-69bc-4e76-b313-5cc2998d0b25"
+                    },
+                    {
+                      "key": "firstname",
+                      "value": "Google",
+                      "type": "text",
+                      "uuid": "63ce4635-ad2a-4eef-a036-9e1bc7f5b9bc"
+                    },
+                    {
+                      "key": "lastname",
+                      "value": "Facebook",
+                      "type": "text",
+                      "uuid": "875a9603-8f5f-4dc6-b8db-4d1a6065b899"
+                    },
+                    {
+                      "key": "company",
+                      "value": "Entonico",
+                      "type": "text",
+                      "uuid": "329060f9-6d46-4548-a90d-82b6fd640b23"
+                    },
+                    {
+                      "key": "address1",
+                      "value": "ABC",
+                      "type": "text",
+                      "uuid": "8ae392ae-b675-44f3-989f-679bac343997"
+                    },
+                    {
+                      "key": "address2",
+                      "value": "2322",
+                      "type": "text",
+                      "uuid": "f87f16a1-a6a9-4d8e-9bef-33f504432645"
+                    },
+                    {
+                      "key": "country",
+                      "value": "Thailand",
+                      "type": "text",
+                      "uuid": "d5cc18ed-e894-4839-a03f-e4a4599a2b84"
+                    },
+                    {
+                      "key": "zipcode",
+                      "value": "10900",
+                      "type": "text",
+                      "uuid": "20aab94f-295e-4dd1-96f9-b7fc004c04b3"
+                    },
+                    {
+                      "key": "state",
+                      "value": "CC",
+                      "type": "text",
+                      "uuid": "d437f65a-a76e-4452-a3a8-b2db8173d086"
+                    },
+                    {
+                      "key": "city",
+                      "value": "AA",
+                      "type": "text",
+                      "uuid": "71718298-ba12-4ed8-bdf4-0b059d6f8910"
+                    },
+                    {
+                      "key": "mobile_number",
+                      "value": "0228881122",
+                      "type": "text",
+                      "uuid": "f30a58bb-6daa-4dff-9ce6-a2840eac6f98"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{BaseURL}}/api/createAccount",
+                  "host": [
+                    "{{BaseURL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "createAccount"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "body": "{\"responseCode\": 400, \"message\": \"Email already exists!\"}"
+            }
+          ]
+        },
+        {
+          "name": "API 14: GET user account detail by email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/api/getUserDetailByEmail?email={{Email}}",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "getUserDetailByEmail"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{Email}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 7: POST To Verify Login with valid details",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "{{Email}}",
+                  "type": "text",
+                  "uuid": "a5657683-0948-4628-bad6-83119ce7d83e"
+                },
+                {
+                  "key": "password",
+                  "value": "{{Password}}",
+                  "type": "text",
+                  "uuid": "1fd8764f-5810-4060-9693-6c0e35ecfb7b"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BaseURL}}/api/verifyLogin",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 8: POST To Verify Login without email parameter",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "{{Email}}",
+                  "type": "text",
+                  "uuid": "a5657683-0948-4628-bad6-83119ce7d83e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BaseURL}}/api/verifyLogin",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 9: DELETE To Verify Login",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "{{Email}}",
+                  "type": "text",
+                  "uuid": "a5657683-0948-4628-bad6-83119ce7d83e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BaseURL}}/api/verifyLogin",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 10: POST To Verify Login with invalid details",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "A{{Email}}",
+                  "type": "text",
+                  "uuid": "a5657683-0948-4628-bad6-83119ce7d83e"
+                },
+                {
+                  "key": "password",
+                  "value": "{{Password}}",
+                  "type": "text",
+                  "uuid": "09c8f6b1-520a-4e50-ab37-b47ed82aa29c"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BaseURL}}/api/verifyLogin",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 13: PUT METHOD To Update User Account",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Test JA",
+                  "type": "text",
+                  "uuid": "74cd8b75-e988-477b-8292-06d83bc0394a"
+                },
+                {
+                  "key": "email",
+                  "value": "{{Email}}",
+                  "type": "text",
+                  "uuid": "b0a0203d-7dcb-4abe-b53c-f2639cd98288"
+                },
+                {
+                  "key": "password",
+                  "value": "{{Password}}",
+                  "type": "text",
+                  "uuid": "198c93b3-c804-48f6-b10f-68ba7e57e34d"
+                },
+                {
+                  "key": "title ",
+                  "value": "Mr",
+                  "type": "text",
+                  "uuid": "b070099f-75c0-4bc7-b2ea-766012207f63"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "15",
+                  "type": "text",
+                  "uuid": "69302a5c-f885-4bb9-a6d3-dbb4b2b82211"
+                },
+                {
+                  "key": "birth_month",
+                  "value": "12",
+                  "type": "text",
+                  "uuid": "2581894f-aac3-4570-b7ba-4007f5bafc3d"
+                },
+                {
+                  "key": "birth_year",
+                  "value": "2002",
+                  "type": "text",
+                  "uuid": "1e03ed0f-69bc-4e76-b313-5cc2998d0b25"
+                },
+                {
+                  "key": "firstname",
+                  "value": "Google",
+                  "type": "text",
+                  "uuid": "63ce4635-ad2a-4eef-a036-9e1bc7f5b9bc"
+                },
+                {
+                  "key": "lastname",
+                  "value": "Facebook",
+                  "type": "text",
+                  "uuid": "875a9603-8f5f-4dc6-b8db-4d1a6065b899"
+                },
+                {
+                  "key": "company",
+                  "value": "Entonico",
+                  "type": "text",
+                  "uuid": "329060f9-6d46-4548-a90d-82b6fd640b23"
+                },
+                {
+                  "key": "address1",
+                  "value": "ABC",
+                  "type": "text",
+                  "uuid": "8ae392ae-b675-44f3-989f-679bac343997"
+                },
+                {
+                  "key": "address2",
+                  "value": "2322",
+                  "type": "text",
+                  "uuid": "f87f16a1-a6a9-4d8e-9bef-33f504432645"
+                },
+                {
+                  "key": "country",
+                  "value": "Thailand",
+                  "type": "text",
+                  "uuid": "d5cc18ed-e894-4839-a03f-e4a4599a2b84"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "10900",
+                  "type": "text",
+                  "uuid": "20aab94f-295e-4dd1-96f9-b7fc004c04b3"
+                },
+                {
+                  "key": "state",
+                  "value": "CC",
+                  "type": "text",
+                  "uuid": "d437f65a-a76e-4452-a3a8-b2db8173d086"
+                },
+                {
+                  "key": "city",
+                  "value": "AA",
+                  "type": "text",
+                  "uuid": "71718298-ba12-4ed8-bdf4-0b059d6f8910"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "0228881122",
+                  "type": "text",
+                  "uuid": "f30a58bb-6daa-4dff-9ce6-a2840eac6f98"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BaseURL}}/api/updateAccount",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "updateAccount"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 12: DELETE METHOD To Delete User Account",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "{{Email}}",
+                  "type": "text",
+                  "uuid": "a5657683-0948-4628-bad6-83119ce7d83e"
+                },
+                {
+                  "key": "password",
+                  "value": "{{Password}}",
+                  "type": "text",
+                  "uuid": "09c8f6b1-520a-4e50-ab37-b47ed82aa29c"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BaseURL}}/api/deleteAccount",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "deleteAccount"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Product-Management",
+      "item": [
+        {
+          "name": "API 1: GET All Products List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/api/productsList",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "productsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 2: POST To All Products List",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/api/productsList",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "productsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 3: Get All Brands List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/api/brandsList",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "brandsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 4: PUT To All Brands List",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/api/brandsList",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "brandsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 5: POST To Search Product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "search_product",
+                  "value": "Shirt",
+                  "type": "text",
+                  "uuid": "f525ba1e-8fbc-40fd-9f62-1aae141413d4"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BaseURL}}/api/searchProduct",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "searchProduct"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 6: POST To Search Product without search_product parameter",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            },
+            "url": {
+              "raw": "{{BaseURL}}/api/searchProduct",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "api",
+                "searchProduct"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BaseURL",
+      "value": "https://automationexercise.com"
+    },
+    {
+      "key": "Email",
+      "value": ""
+    },
+    {
+      "key": "Password",
+      "value": ""
+    }
+  ]
+}
